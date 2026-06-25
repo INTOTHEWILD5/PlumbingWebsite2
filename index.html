@@ -1,0 +1,2345 @@
+testplumbingsite2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reliant Plumbing — Premium Residential & Commercial Services</title>
+    <meta name="description" content="Expert plumbing services for homeowners, property managers, and businesses. 24/7 emergency response. Trusted craftsmanship." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --charcoal: #1a1a1a;
+            --charcoal-light: #2c2c2c;
+            --charcoal-lighter: #3d3d3d;
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+            --copper: #b87333;
+            --copper-light: #d4a06a;
+            --copper-glow: rgba(184, 115, 51, 0.15);
+            --steel: #8a9ba8;
+            --steel-light: #b0c4d0;
+            --steel-glow: rgba(138, 155, 168, 0.12);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.14);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+        }
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--copper);
+            background: var(--copper-glow);
+            padding: 4px 16px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+        }
+
+        .section-title .highlight {
+            color: var(--copper);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--charcoal-lighter);
+            max-width: 580px;
+            margin-top: 12px;
+            line-height: 1.7;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--copper);
+            color: var(--white);
+            border-color: var(--copper);
+        }
+        .btn-primary:hover {
+            background: #a05f2a;
+            border-color: #a05f2a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(184, 115, 51, 0.30);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            border-color: var(--charcoal);
+        }
+        .btn-secondary:hover {
+            background: var(--charcoal);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--charcoal);
+            border-color: var(--white);
+        }
+        .btn-white:hover {
+            background: var(--off-white);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .btn-emergency {
+            background: #c0392b;
+            color: var(--white);
+            border-color: #c0392b;
+            font-size: 1.2rem;
+            padding: 18px 44px;
+            animation: pulse-emergency 2s infinite;
+        }
+        .btn-emergency:hover {
+            background: #a93226;
+            border-color: #a93226;
+            transform: scale(1.02);
+            box-shadow: 0 16px 48px rgba(192, 57, 43, 0.35);
+        }
+
+        @keyframes pulse-emergency {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 16px rgba(192, 57, 43, 0);
+            }
+        }
+
+        .btn-ghost {
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: var(--white);
+        }
+
+        /* ============================================================
+           STICKY CALL BUTTON
+           ============================================================ */
+        .sticky-call {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            background: var(--copper);
+            color: var(--white);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(184, 115, 51, 0.40);
+            transition: var(--transition);
+            border: none;
+            font-size: 1.6rem;
+        }
+        .sticky-call:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 48px rgba(184, 115, 51, 0.50);
+        }
+        .sticky-call .tooltip {
+            position: absolute;
+            right: 76px;
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+        .sticky-call:hover .tooltip {
+            opacity: 1;
+        }
+        .sticky-call .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 8px solid var(--charcoal);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-call {
+                width: 56px;
+                height: 56px;
+                font-size: 1.3rem;
+                bottom: 16px;
+                right: 16px;
+            }
+            .sticky-call .tooltip {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(26, 26, 26, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 2px 40px rgba(0, 0, 0, 0.12);
+            padding: 10px 0;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            color: var(--copper);
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--copper);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--white);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--copper);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: var(--copper);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.85rem !important;
+        }
+        .nav-cta:hover {
+            background: #a05f2a;
+            color: var(--white) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 360px;
+                height: 100vh;
+                background: var(--charcoal);
+                flex-direction: column;
+                justify-content: center;
+                gap: 24px;
+                padding: 40px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 1.2rem;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            .nav-links a:hover {
+                color: var(--white);
+            }
+            .nav-cta {
+                font-size: 1rem !important;
+                padding: 12px 28px;
+            }
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+            .navbar .container {
+                position: relative;
+            }
+        }
+
+        /* ============================================================
+           HERO — SECTION 1: Emergency First (no diagram)
+           ============================================================ */
+        .hero {
+            min-height: 100vh;
+            background: var(--charcoal);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(184, 115, 51, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(138, 155, 168, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: 10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle at center, rgba(184, 115, 51, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px 0;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(184, 115, 51, 0.18);
+            border: 1px solid rgba(184, 115, 51, 0.25);
+            padding: 6px 18px 6px 10px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--copper-light);
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2ecc71;
+            display: inline-block;
+            animation: blink 1.4s infinite;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+        .hero h1 .highlight {
+            color: var(--copper);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hero-stats-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-stats-item .number {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+        .hero-stats-item .label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-placeholder {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1/1;
+            border-radius: var(--radius-lg);
+            background:
+                repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 8px),
+                linear-gradient(135deg, var(--charcoal-light) 0%, #222 100%);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-placeholder .inner-ring {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            border: 2px solid rgba(184, 115, 51, 0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: rgba(255, 255, 255, 0.08);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .hero-placeholder .inner-ring .copper-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--copper);
+            border-radius: 50%;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .hero-placeholder .pulse-ring {
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            border: 1px solid rgba(184, 115, 51, 0.06);
+            animation: ring-expand 4s infinite;
+        }
+        .hero-placeholder .pulse-ring:nth-child(2) {
+            animation-delay: 2s;
+        }
+        @keyframes ring-expand {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-visual {
+                order: -1;
+            }
+            .hero-placeholder {
+                max-width: 320px;
+            }
+            .hero::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ============================================================
+           SECTION 2: Trust Through Numbers
+           ============================================================ */
+        .numbers {
+            background: var(--off-white);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        .number-card {
+            text-align: center;
+            padding: 24px;
+        }
+        .number-card .num {
+            font-size: clamp(2.6rem, 4vw, 4rem);
+            font-weight: 800;
+            color: var(--charcoal);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .number-card .num .copper {
+            color: var(--copper);
+        }
+        .number-card .label {
+            font-size: 0.95rem;
+            color: var(--charcoal-lighter);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        .number-card .sub {
+            font-size: 0.8rem;
+            color: var(--steel);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .numbers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .numbers-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .number-card {
+                padding: 16px;
+            }
+        }
+
+        /* ============================================================
+           SECTION 3: Interactive Service Explorer (split layout)
+           ============================================================ */
+        .services {
+            background: var(--white);
+        }
+
+        .services-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+            margin-top: 48px;
+        }
+
+        /* Left column: detail panel */
+        .service-detail-panel {
+            padding: 32px 32px 40px;
+            background: var(--off-white);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--copper);
+            min-height: 300px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service-detail-panel h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+        .service-detail-panel p {
+            color: var(--charcoal-lighter);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+        .service-detail-panel .btn {
+            margin-top: 24px;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            align-self: flex-start;
+        }
+
+        /* Right column: service list */
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-item {
+            padding: 18px 24px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: var(--white);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .service-item:hover {
+            border-color: var(--copper);
+            box-shadow: var(--shadow-sm);
+            transform: translateX(4px);
+        }
+        .service-item.active {
+            border-color: var(--copper);
+            background: var(--copper-glow);
+            box-shadow: 0 0 0 1px var(--copper);
+        }
+        .service-item .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .service-item.active .icon {
+            background: var(--copper);
+            color: var(--white);
+        }
+        .service-item .info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .service-item .info p {
+            font-size: 0.85rem;
+            color: var(--charcoal-lighter);
+            margin-top: 2px;
+        }
+
+        @media (max-width: 992px) {
+            .services-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .service-detail-panel {
+                min-height: 200px;
+                padding: 28px;
+            }
+            .service-detail-panel p {
+                max-width: 100%;
+            }
+            .service-detail-panel .btn {
+                align-self: stretch;
+                text-align: center;
+            }
+            /* On mobile, list comes after panel, but we want list to appear above? No, the prompt just says invert. HTML order is panel then list. */
+        }
+
+        /* ============================================================
+           SECTION 4: About Us
+           ============================================================ */
+        .about {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+        .about .section-label {
+            background: rgba(184, 115, 51, 0.20);
+        }
+        .about .section-title {
+            color: var(--white);
+        }
+        .about .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text .signature {
+            margin-top: 24px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-style: italic;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 20px;
+        }
+
+        .about-visual {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--charcoal-light);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+        }
+
+        .about-visual .pattern {
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 12px),
+                linear-gradient(135deg, #222 0%, var(--charcoal-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: rgba(255, 255, 255, 0.06);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .about-visual .pattern .big-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            opacity: 0.15;
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-visual {
+                order: -1;
+                aspect-ratio: 16/10;
+            }
+        }
+
+        /* ============================================================
+           SECTION 5: Why Customers Choose Us
+           ============================================================ */
+        .compare {
+            background: var(--white);
+        }
+
+        .compare-table-wrap {
+            overflow-x: auto;
+            margin-top: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 600px;
+        }
+        .compare-table th {
+            padding: 20px 24px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1rem;
+            background: var(--off-white);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+        }
+        .compare-table th:first-child {
+            width: 30%;
+        }
+        .compare-table th:not(:first-child) {
+            text-align: center;
+        }
+        .compare-table td {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            vertical-align: middle;
+        }
+        .compare-table td:first-child {
+            font-weight: 600;
+        }
+        .compare-table td:not(:first-child) {
+            text-align: center;
+        }
+        .compare-table .check {
+            color: #27ae60;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .compare-table .x {
+            color: #e74c3c;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .compare-table .highlight-row td {
+            background: var(--copper-glow);
+        }
+        .compare-table .brand-col {
+            color: var(--copper);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .compare-table {
+                font-size: 0.85rem;
+                min-width: 480px;
+            }
+            .compare-table th,
+            .compare-table td {
+                padding: 12px 16px;
+            }
+        }
+
+        /* ============================================================
+           SECTION 6: Process Timeline
+           ============================================================ */
+        .process {
+            background: var(--off-white);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 48px;
+            position: relative;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 60px;
+            right: 60px;
+            height: 3px;
+            background: var(--copper);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .timeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+            position: relative;
+            z-index: 1;
+            gap: 12px;
+        }
+        .timeline-step .step-number {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--copper);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--copper);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .timeline-step:hover .step-number {
+            transform: scale(1.08);
+            background: var(--copper);
+            color: var(--white);
+            box-shadow: 0 8px 24px rgba(184, 115, 51, 0.25);
+        }
+        .timeline-step .step-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+        .timeline-step .step-desc {
+            font-size: 0.8rem;
+            color: var(--charcoal-lighter);
+            max-width: 120px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+                padding: 0;
+            }
+            .timeline::before {
+                display: none;
+            }
+            .timeline-step {
+                flex-direction: row;
+                gap: 20px;
+                text-align: left;
+                width: 100%;
+                max-width: 400px;
+            }
+            .timeline-step .step-desc {
+                max-width: 100%;
+            }
+        }
+
+        /* ============================================================
+           SECTION 7: Testimonials — Google 5-star style
+           ============================================================ */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 28px 24px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .testimonial-card:hover {
+            border-color: var(--copper);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-card .stars {
+            color: #f5a623;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 2px;
+        }
+        .testimonial-card .stars .star {
+            display: inline-block;
+        }
+        .testimonial-card .review-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+        .testimonial-card .review-text .quoted {
+            color: var(--copper);
+            opacity: 0.4;
+            font-size: 1.4rem;
+            line-height: 0;
+            vertical-align: middle;
+        }
+        .testimonial-card .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            padding-top: 16px;
+        }
+        .testimonial-card .reviewer .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--copper-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--copper);
+            flex-shrink: 0;
+        }
+        .testimonial-card .reviewer .info .name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+        .testimonial-card .reviewer .info .detail {
+            font-size: 0.8rem;
+            color: var(--charcoal-lighter);
+        }
+        .testimonial-card .reviewer .info .detail .dot {
+            color: var(--copper);
+            margin: 0 4px;
+        }
+
+        .testimonial-card .google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--steel);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .testimonial-card .google-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: #4285f4;
+        }
+
+        @media (max-width: 992px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================
+           SECTION 8: Service Area Map
+           ============================================================ */
+        .area {
+            background: var(--off-white);
+        }
+
+        .area-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .area-map {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--charcoal);
+            aspect-ratio: 16/10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .area-map svg {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .area-info h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .area-info p {
+            color: var(--charcoal-lighter);
+            margin-bottom: 20px;
+        }
+        .area-info .zones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .area-info .zones span {
+            background: var(--white);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+        .area-info .zones span:hover {
+            border-color: var(--copper);
+            background: var(--copper-glow);
+        }
+
+        @media (max-width: 992px) {
+            .area-wrap {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .area-map {
+                aspect-ratio: 16/9;
+            }
+        }
+
+        /* ============================================================
+           SECTION 9: Instant Quote
+           ============================================================ */
+        .quote {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+        .quote .section-title {
+            color: var(--white);
+        }
+        .quote .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .quote .section-label {
+            background: rgba(184, 115, 51, 0.20);
+        }
+
+        .quote-form-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .quote-form {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .quote-form .form-group {
+            margin-bottom: 20px;
+        }
+        .quote-form label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .quote-form input,
+        .quote-form textarea,
+        .quote-form select {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--white);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .quote-form input:focus,
+        .quote-form textarea:focus,
+        .quote-form select:focus {
+            outline: none;
+            border-color: var(--copper);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(184, 115, 51, 0.15);
+        }
+        .quote-form input::placeholder,
+        .quote-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .quote-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .quote-form .file-upload {
+            border: 2px dashed rgba(255, 255, 255, 0.10);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .quote-form .file-upload:hover {
+            border-color: var(--copper);
+            color: var(--white);
+        }
+        .quote-form .file-upload input {
+            display: none;
+        }
+        .quote-form .file-upload .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .quote-form .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 1.05rem;
+            margin-top: 8px;
+        }
+
+        .quote-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .quote-benefits .benefit {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .quote-benefits .benefit .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(184, 115, 51, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            color: var(--copper);
+        }
+        .quote-benefits .benefit h4 {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .quote-benefits .benefit p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .quote-form-wrap {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .quote-form {
+                padding: 28px;
+            }
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--charcoal);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 48px 0 32px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            max-width: 300px;
+            line-height: 1.7;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            letter-spacing: 0.04em;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul li a {
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer ul li a:hover {
+            color: var(--white);
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            font-size: 0.8rem;
+        }
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+        }
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* ============================================================
+           SCROLL ANIMATIONS
+           ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ============================================================
+           RESPONSIVE TWEAKS
+           ============================================================ */
+        @media (max-width: 480px) {
+            .section-padding {
+                padding: 56px 0;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+            .btn-emergency {
+                font-size: 1rem;
+                padding: 14px 28px;
+            }
+            .quote-form {
+                padding: 20px;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    STICKY CALL BUTTON
+    ============================================================ -->
+    <button class="sticky-call" aria-label="Call now for emergency service">
+        <span class="tooltip">Call Now</span>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </button>
+
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="logo" aria-label="Reliant Plumbing Home">
+                <span class="logo-icon">R</span>
+                Reliant<span>Plumbing</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#process" role="menuitem">Process</a></li>
+                <li role="none"><a href="#testimonials" role="menuitem">Reviews</a></li>
+                <li role="none"><a href="#quote" role="menuitem" class="nav-cta">Get a Quote</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    SECTION 1: HERO — Emergency First
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        24/7 Emergency Service
+                    </div>
+                    <h1>
+                        Expert Plumbing<br />
+                        <span class="highlight">When You Need It Most</span>
+                    </h1>
+                    <p>
+                        Residential &amp; commercial plumbing with precision craftsmanship,
+                        transparent pricing, and response times you can count on.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="tel:+15551234567" class="btn btn-emergency">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Call Now: (555) 123-4567
+                        </a>
+                        <a href="#quote" class="btn btn-secondary btn-white">Request Quote</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stats-item">
+                            <span class="number">15 min</span>
+                            <span class="label">Average Response</span>
+                        </div>
+                        <div class="hero-stats-item">
+                            <span class="number">24/7</span>
+                            <span class="label">Emergency Service</span>
+                        </div>
+                        <div class="hero-stats-item">
+                            <span class="number">50 mi</span>
+                            <span class="label">Service Area</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-placeholder">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring"></div>
+                        <div class="inner-ring">
+                            <span class="copper-dot"></span>
+                            <span>Reliant</span>
+                            <span style="font-size:0.6rem;letter-spacing:0.3em;opacity:0.5;">plumbing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 2: Trust Through Numbers
+    ============================================================ -->
+    <section class="numbers section-padding" id="numbers">
+        <div class="container">
+            <div class="numbers-grid">
+                <div class="number-card reveal">
+                    <div class="num" data-count="28">0</div>
+                    <div class="label">Years in Business</div>
+                    <div class="sub">Est. 1998</div>
+                </div>
+                <div class="number-card reveal reveal-delay-1">
+                    <div class="num" data-count="12450">0</div>
+                    <div class="label">Jobs Completed</div>
+                    <div class="sub">And counting</div>
+                </div>
+                <div class="number-card reveal reveal-delay-2">
+                    <div class="num"><span class="copper">98</span>%</div>
+                    <div class="label">Customer Satisfaction</div>
+                    <div class="sub">Verified reviews</div>
+                </div>
+                <div class="number-card reveal reveal-delay-3">
+                    <div class="num"><span class="copper">&lt;</span>20<span class="copper">m</span></div>
+                    <div class="label">Avg. Emergency Response</div>
+                    <div class="sub">24/7 availability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 3: Interactive Service Explorer (split layout)
+    ============================================================ -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">What We Do</span>
+                <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+                <p class="section-subtitle mx-auto">Click any service to learn more about our expertise and approach.</p>
+            </div>
+
+            <div class="services-layout">
+                <!-- LEFT: Detail Panel (Explanation) -->
+                <div class="service-detail-panel" id="serviceDetail">
+                    <h4>Water Heaters</h4>
+                    <p>Expert installation, repair, and maintenance for all water heater types — tankless, traditional, and hybrid. We ensure energy efficiency and reliable hot water.</p>
+                    <a href="#quote" class="btn btn-primary">Get a Quote</a>
+                </div>
+
+                <!-- RIGHT: Service List -->
+                <div class="service-list" id="serviceList">
+                    <div class="service-item active" data-index="0">
+                        <div class="icon">🔥</div>
+                        <div class="info"><h4>Water Heaters</h4><p>Installation, repair &amp; maintenance</p></div>
+                    </div>
+                    <div class="service-item" data-index="1">
+                        <div class="icon">🚰</div>
+                        <div class="info"><h4>Drain Issues</h4><p>Clogs, cleaning &amp; camera inspection</p></div>
+                    </div>
+                    <div class="service-item" data-index="2">
+                        <div class="icon">🔧</div>
+                        <div class="info"><h4>Pipe Repairs</h4><p>Leaks, bursts &amp; repiping</p></div>
+                    </div>
+                    <div class="service-item" data-index="3">
+                        <div class="icon">🔍</div>
+                        <div class="info"><h4>Leak Detection</h4><p>Advanced non-invasive detection</p></div>
+                    </div>
+                    <div class="service-item" data-index="4">
+                        <div class="icon">🏢</div>
+                        <div class="info"><h4>Commercial Plumbing</h4><p>Multi-unit &amp; business solutions</p></div>
+                    </div>
+                    <div class="service-item" data-index="5">
+                        <div class="icon">🚨</div>
+                        <div class="info"><h4>Emergency Repairs</h4><p>24/7 rapid response</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 4: About Us
+    ============================================================ -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">About Us</span>
+                <h2 class="section-title">Built on <span class="highlight">Craftsmanship</span> &amp; Trust</h2>
+                <p class="section-subtitle mx-auto">We're not just plumbers — we're problem solvers who take pride in every job.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        Reliant Plumbing was founded with a simple mission: to deliver premium plumbing services with the precision of an engineering firm and the care of a family business. We serve homeowners, property managers, and businesses across the region with a commitment to transparency, speed, and lasting quality.
+                    </p>
+                    <p>
+                        Every project — from a small faucet repair to a full commercial repipe — is treated with the same level of attention and craftsmanship. We use advanced diagnostic tools, premium materials, and a meticulous process to ensure every job is done right the first time.
+                    </p>
+                    <p>
+                        Our team is fully licensed, insured, and continuously trained on the latest plumbing technologies. We believe in clear communication, fixed pricing, and standing behind our work with a 5-year warranty.
+                    </p>
+                    <div class="signature">— The Reliant Plumbing Team</div>
+                </div>
+                <div class="about-visual reveal reveal-delay-1">
+                    <div class="pattern">
+                        <span class="big-icon">⚙️</span>
+                        <span>Reliant</span>
+                        <span style="font-size:0.7rem;letter-spacing:0.2em;opacity:0.5;margin-top:4px;">plumbing · est. 1998</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 5: Why Customers Choose Us
+    ============================================================ -->
+    <section class="compare section-padding" id="compare">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-title">We're Different. <span class="highlight">Better.</span></h2>
+                <p class="section-subtitle mx-auto">A transparent comparison of what sets us apart from typical plumbing companies.</p>
+            </div>
+
+            <div class="compare-table-wrap reveal">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th><span class="brand-col">Reliant Plumbing</span></th>
+                            <th>Typical Plumber</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Response Speed</td>
+                            <td><span class="check">✓</span> 15–30 min average</td>
+                            <td><span class="x">✗</span> 1–2 hours+</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Warranty</td>
+                            <td><span class="check">✓</span> 5-year workmanship</td>
+                            <td><span class="x">✗</span> 90-day standard</td>
+                        </tr>
+                        <tr>
+                            <td>Licensing &amp; Insurance</td>
+                            <td><span class="check">✓</span> Fully licensed &amp; bonded</td>
+                            <td><span class="x">✗</span> Often limited</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Communication</td>
+                            <td><span class="check">✓</span> Real-time updates &amp; photos</td>
+                            <td><span class="x">✗</span> Minimal follow-up</td>
+                        </tr>
+                        <tr>
+                            <td>Pricing Transparency</td>
+                            <td><span class="check">✓</span> Fixed quotes before work</td>
+                            <td><span class="x">✗</span> Hidden fees common</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 6: Process Timeline
+    ============================================================ -->
+    <section class="process section-padding" id="process">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Our Process</span>
+                <h2 class="section-title">From Call to <span class="highlight">Completion</span></h2>
+                <p class="section-subtitle mx-auto">A seamless, transparent journey from your first call to final follow-up.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-step reveal">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Contact</div>
+                    <div class="step-desc">Call, text, or book online</div>
+                </div>
+                <div class="timeline-step reveal reveal-delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Assessment</div>
+                    <div class="step-desc">On-site diagnosis &amp; scope</div>
+                </div>
+                <div class="timeline-step reveal reveal-delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Quote</div>
+                    <div class="step-desc">Fixed price, no surprises</div>
+                </div>
+                <div class="timeline-step reveal reveal-delay-3">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Repair</div>
+                    <div class="step-desc">Expert work, minimal disruption</div>
+                </div>
+                <div class="timeline-step reveal reveal-delay-4">
+                    <div class="step-number">5</div>
+                    <div class="step-label">Testing</div>
+                    <div class="step-desc">Quality assurance &amp; walkthrough</div>
+                </div>
+                <div class="timeline-step reveal reveal-delay-4" style="transition-delay:0.5s;">
+                    <div class="step-number">6</div>
+                    <div class="step-label">Follow-up</div>
+                    <div class="step-desc">Satisfaction check &amp; warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 7: Testimonials — Google 5-star style
+    ============================================================ -->
+    <section class="testimonials section-padding" id="testimonials">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">What Our <span class="highlight">Customers Say</span></h2>
+                <p class="section-subtitle mx-auto">Real 5-star reviews from real people in your community.</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <!-- Card 1 -->
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <div class="review-text">
+                        <span class="quoted">"</span>Absolutely outstanding service. They arrived within 20 minutes of my call, diagnosed the issue immediately, and had everything fixed before lunch. Professional, clean, and transparent pricing.<span class="quoted">"</span>
+                    </div>
+                    <div class="reviewer">
+                        <div class="avatar">JM</div>
+                        <div class="info">
+                            <div class="name">Jennifer M.</div>
+                            <div class="detail">Maplewood, NJ <span class="dot">•</span> Water Heater Repair</div>
+                        </div>
+                    </div>
+                    <div class="google-badge">
+                        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        Google Review
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <div class="review-text">
+                        <span class="quoted">"</span>We manage 40+ rental units and have worked with many plumbers over the years. Reliant is by far the most reliable and communicative. Their team treats our properties like their own.<span class="quoted">"</span>
+                    </div>
+                    <div class="reviewer">
+                        <div class="avatar">DR</div>
+                        <div class="info">
+                            <div class="name">David R.</div>
+                            <div class="detail">Newark, NJ <span class="dot">•</span> Commercial Plumbing</div>
+                        </div>
+                    </div>
+                    <div class="google-badge">
+                        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        Google Review
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <div class="review-text">
+                        <span class="quoted">"</span>Called at 2 AM with a burst pipe flooding my basement. They were at my door in 18 minutes. Fixed it, cleaned up, and followed up the next day. Unbelievable service.<span class="quoted">"</span>
+                    </div>
+                    <div class="reviewer">
+                        <div class="avatar">TS</div>
+                        <div class="info">
+                            <div class="name">Tom S.</div>
+                            <div class="detail">Montclair, NJ <span class="dot">•</span> Emergency Repair</div>
+                        </div>
+                    </div>
+                    <div class="google-badge">
+                        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        Google Review
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 8: Service Area Map
+    ============================================================ -->
+    <section class="area section-padding" id="area">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Service Area</span>
+                <h2 class="section-title">Where We <span class="highlight">Work</span></h2>
+                <p class="section-subtitle mx-auto">Proudly serving residential and commercial clients across the region.</p>
+            </div>
+
+            <div class="area-wrap">
+                <div class="area-map reveal">
+                    <svg viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="20" width="460" height="310" rx="16" fill="#1a1a1a" stroke="#2c2c2c" stroke-width="2"/>
+                        <circle cx="180" cy="130" r="80" fill="rgba(184,115,51,0.08)" stroke="rgba(184,115,51,0.20)" stroke-width="2" stroke-dasharray="6 4"/>
+                        <circle cx="320" cy="180" r="70" fill="rgba(184,115,51,0.06)" stroke="rgba(184,115,51,0.15)" stroke-width="2" stroke-dasharray="6 4"/>
+                        <circle cx="250" cy="220" r="60" fill="rgba(184,115,51,0.05)" stroke="rgba(184,115,51,0.12)" stroke-width="2" stroke-dasharray="6 4"/>
+                        <circle cx="250" cy="170" r="12" fill="#b87333" stroke="#1a1a1a" stroke-width="2"/>
+                        <text x="250" y="170" text-anchor="middle" fill="#1a1a1a" font-size="8" font-weight="800" font-family="Inter, sans-serif">HQ</text>
+                        <circle cx="120" cy="90" r="6" fill="#b87333" stroke="#1a1a1a" stroke-width="1.5"/>
+                        <circle cx="340" cy="110" r="6" fill="#b87333" stroke="#1a1a1a" stroke-width="1.5"/>
+                        <circle cx="380" cy="240" r="6" fill="#b87333" stroke="#1a1a1a" stroke-width="1.5"/>
+                        <circle cx="140" cy="240" r="6" fill="#b87333" stroke="#1a1a1a" stroke-width="1.5"/>
+                        <circle cx="200" cy="290" r="6" fill="#b87333" stroke="#1a1a1a" stroke-width="1.5"/>
+                        <text x="250" y="320" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="12" font-weight="500" font-family="Inter, sans-serif">Coverage: 50-mile radius</text>
+                    </svg>
+                </div>
+                <div class="area-info reveal reveal-delay-1">
+                    <h3>Full Coverage Across the Region</h3>
+                    <p>We serve homeowners, property managers, and businesses within a 50-mile radius of our headquarters. Emergency response available 24/7.</p>
+                    <div class="zones">
+                        <span>Maplewood</span>
+                        <span>Montclair</span>
+                        <span>Newark</span>
+                        <span>Hoboken</span>
+                        <span>Jersey City</span>
+                        <span>Union City</span>
+                        <span>Elizabeth</span>
+                        <span>+ more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SECTION 9: Instant Quote
+    ============================================================ -->
+    <section class="quote section-padding" id="quote">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Get Started</span>
+                <h2 class="section-title">Instant <span class="highlight">Quote</span></h2>
+                <p class="section-subtitle mx-auto">Tell us about your project and we'll get back to you with a fixed price within 2 hours.</p>
+            </div>
+
+            <div class="quote-form-wrap">
+                <div class="quote-form reveal">
+                    <form id="quoteForm" novalidate>
+                        <div class="form-group">
+                            <label for="quoteName">Full Name</label>
+                            <input type="text" id="quoteName" placeholder="e.g. John Smith" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="quotePhone">Phone Number</label>
+                            <input type="tel" id="quotePhone" placeholder="(555) 123-4567" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="quoteEmail">Email Address</label>
+                            <input type="email" id="quoteEmail" placeholder="john@example.com" />
+                        </div>
+                        <div class="form-group">
+                            <label for="quoteService">Service Needed</label>
+                            <select id="quoteService">
+                                <option value="">Select a service...</option>
+                                <option value="water-heater">Water Heater</option>
+                                <option value="drain">Drain Issue</option>
+                                <option value="pipe">Pipe Repair</option>
+                                <option value="leak">Leak Detection</option>
+                                <option value="commercial">Commercial Plumbing</option>
+                                <option value="emergency">Emergency Repair</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quoteDesc">Describe Your Issue</label>
+                            <textarea id="quoteDesc" placeholder="Tell us what's happening..." rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="file-upload" id="fileUpload">
+                                <span class="icon">📎</span>
+                                <span>Drop a photo or click to upload</span>
+                                <input type="file" id="quoteFile" accept="image/*" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Request Quote →</button>
+                    </form>
+                </div>
+
+                <div class="quote-benefits reveal reveal-delay-1">
+                    <div class="benefit">
+                        <div class="icon">⏱️</div>
+                        <div><h4>Fast Response</h4><p>We'll contact you within 2 hours with a fixed quote.</p></div>
+                    </div>
+                    <div class="benefit">
+                        <div class="icon">💰</div>
+                        <div><h4>No Hidden Fees</h4><p>Every quote is transparent with no surprise charges.</p></div>
+                    </div>
+                    <div class="benefit">
+                        <div class="icon">🛡️</div>
+                        <div><h4>Warranty Included</h4><p>All work is backed by our 5-year workmanship warranty.</p></div>
+                    </div>
+                    <div class="benefit">
+                        <div class="icon">📋</div>
+                        <div><h4>Licensed &amp; Insured</h4><p>Full credentials for your peace of mind.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="font-size:1.3rem;">
+                        <span class="logo-icon">R</span>
+                        Reliant<span>Plumbing</span>
+                    </a>
+                    <p>Premium residential and commercial plumbing services with a commitment to craftsmanship, transparency, and speed.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Water Heaters</a></li>
+                        <li><a href="#services">Drain Issues</a></li>
+                        <li><a href="#services">Pipe Repairs</a></li>
+                        <li><a href="#services">Leak Detection</a></li>
+                        <li><a href="#services">Commercial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#area">Service Area</a></li>
+                        <li><a href="#quote">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+15551234567">(555) 123-4567</a></li>
+                        <li><a href="mailto:info@reliantplumbing.com">info@reliantplumbing.com</a></li>
+                        <li>24/7 Emergency Service</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Reliant Plumbing. All rights reserved.</span>
+                <span>
+                    <a href="#">Privacy Policy</a> &middot;
+                    <a href="#">Terms of Service</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ============================
+            // NAVBAR
+            // ============================
+            const navbar = document.getElementById('navbar');
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 60) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('open');
+                this.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // ============================
+            // SCROLL REVEAL
+            // ============================
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.10,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            reveals.forEach(el => revealObserver.observe(el));
+
+            // ============================
+            // COUNTER ANIMATION
+            // ============================
+            const counters = document.querySelectorAll('.num[data-count]');
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-count'), 10);
+                        const duration = 1800;
+                        const startTime = performance.now();
+
+                        function updateCounter(time) {
+                            const progress = Math.min((time - startTime) / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.floor(eased * target);
+                            el.textContent = current.toLocaleString();
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                el.textContent = target.toLocaleString();
+                            }
+                        }
+                        requestAnimationFrame(updateCounter);
+                        counterObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(el => counterObserver.observe(el));
+
+            // ============================
+            // INTERACTIVE SERVICES — SPLIT LAYOUT
+            // ============================
+            const serviceItems = document.querySelectorAll('.service-item');
+            const detailPanel = document.getElementById('serviceDetail');
+
+            const serviceData = [{
+                title: 'Water Heaters',
+                desc: 'Expert installation, repair, and maintenance for all water heater types — tankless, traditional, and hybrid. We ensure energy efficiency and reliable hot water.',
+                icon: '🔥'
+            }, {
+                title: 'Drain Issues',
+                desc: 'From minor clogs to major blockages, we use advanced camera inspection and hydro-jetting to clear drains quickly and prevent future problems.',
+                icon: '🚰'
+            }, {
+                title: 'Pipe Repairs',
+                desc: 'Leaky pipes, burst lines, and repiping projects handled with precision. We use durable materials and ensure your plumbing system is sound.',
+                icon: '🔧'
+            }, {
+                title: 'Leak Detection',
+                desc: 'Non-invasive acoustic and thermal detection to find leaks behind walls, under floors, and in underground pipes without unnecessary demolition.',
+                icon: '🔍'
+            }, {
+                title: 'Commercial Plumbing',
+                desc: 'Comprehensive plumbing solutions for businesses, multi-unit buildings, and properties. Minimal downtime, maximum reliability.',
+                icon: '🏢'
+            }, {
+                title: 'Emergency Repairs',
+                desc: '24/7 rapid response for burst pipes, gas leaks, and other emergencies. Our team is on standby to protect your property.',
+                icon: '🚨'
+            }];
+
+            function setActiveService(index) {
+                // Update list
+                serviceItems.forEach((item, i) => {
+                    item.classList.toggle('active', i === index);
+                });
+
+                // Update detail panel
+                const data = serviceData[index];
+                detailPanel.innerHTML = `
+                    <h4>${data.title}</h4>
+                    <p>${data.desc}</p>
+                    <a href="#quote" class="btn btn-primary">Get a Quote</a>
+                `;
+            }
+
+            serviceItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    setActiveService(index);
+                });
+            });
+
+            // ============================
+            // FILE UPLOAD
+            // ============================
+            const fileUpload = document.getElementById('fileUpload');
+            const fileInput = document.getElementById('quoteFile');
+
+            fileUpload.addEventListener('click', function() {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    const span = fileUpload.querySelector('span:last-child');
+                    span.textContent = this.files[0].name;
+                }
+            });
+
+            // ============================
+            // QUOTE FORM
+            // ============================
+            const quoteForm = document.getElementById('quoteForm');
+
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('quoteName').value.trim();
+                const phone = document.getElementById('quotePhone').value.trim();
+
+                if (!name || !phone) {
+                    alert('Please fill in your name and phone number.');
+                    return;
+                }
+
+                const btn = this.querySelector('.btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    btn.textContent = '✓ Quote Request Sent!';
+                    btn.style.background = '#27ae60';
+                    btn.style.borderColor = '#27ae60';
+
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                        btn.style.borderColor = '';
+                        btn.disabled = false;
+                        this.reset();
+                        const span = fileUpload.querySelector('span:last-child');
+                        span.textContent = 'Drop a photo or click to upload';
+                    }, 2500);
+                }, 1200);
+            });
+
+            // ============================
+            // SMOOTH SCROLL FOR NAV LINKS
+            // ============================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>
